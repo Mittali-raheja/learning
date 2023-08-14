@@ -54,10 +54,17 @@ function initApp(){
         newDiv.innerHTML = `
           <img src="image/${value.image}" onclick="showDescription(${key})">
             <div class="title">${value.name}</div>
-            <div class="price">${value.price.toLocaleString()}</div>
-            <button onclick="addToCard(${key})">Add To Card</button>`;
-           
-
+            <div class="price">${value.price.toLocaleString()}</div>`
+           if (listCards[key] != null) {
+    newDiv.innerHTML += `
+        <div>
+            <button onclick="changeQuantity(${key}, ${listCards[key].quantity - 1})">-</button>
+            <div class="count">${listCards[key].quantity}</div>
+            <button onclick="changeQuantity(${key}, ${listCards[key].quantity + 1})">+</button>
+        </div>`;
+} else {
+    newDiv.innerHTML += `<button onclick="addToCard(${key})">Add To Cart</button>`;
+}
         list.appendChild(newDiv);
          
     });
@@ -75,6 +82,7 @@ function addToCard(key){
     }
     reloadCard();
    updateLocalStorage();
+   window.location.reload();
 }
 
 function showDescription(key) {
@@ -103,9 +111,9 @@ function reloadCard(){
     let count = 0;
     let totalPrice = 0;
     listCards.forEach((value, key)=>{
-    
+           
         if(value != null){
-          totalPrice += value.price !== undefined ? value.price.toLocaleString() : 0;
+          totalPrice += value.price !== undefined ? value.price : 0;
         count = count + value.quantity;
             let newDiv = document.createElement('li');
             newDiv.innerHTML = `
@@ -116,7 +124,9 @@ function reloadCard(){
                     <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
                     <div class="count">${value.quantity}</div>
                     <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-                </div>`;
+                     <button onclick="deleteItem(${key})">Delete</button> 
+            </div>`;
+                
                 listCard.appendChild(newDiv);
         
         }
@@ -124,13 +134,30 @@ function reloadCard(){
     total.innerText = totalPrice.toLocaleString();
     quantity.innerText = count;
 }
+function deleteItem(key) {
+    if (listCards[key] != null) {
+        listCards[key].quantity = 0;
+        delete listCards[key];
+        reloadCard(); 
+
+        updateLocalStorage(); 
+        window.location.reload();
+    }
+}
 
 function changeQuantity(key, quantity){
-    if(quantity == 0){
+    if(listCards[key]!=null){
+
+    
+    if(quantity <= 0){
         delete listCards[key];
     }else{
         listCards[key].quantity = quantity;
         listCards[key].price = quantity * products[key].price;
     }
+    updateLocalStorage();
     reloadCard();
+    window.location.reload();
+    
+}
 }
