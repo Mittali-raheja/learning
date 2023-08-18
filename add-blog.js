@@ -17,14 +17,14 @@ blogForm.addEventListener('submit', function (e) {
             "comments": [] // Initialize an empty array for comments
         };
 
-        // Retrieve existing blogs from local storage or initialize an empty array
+       
         const blogs = JSON.parse(localStorage.getItem('blogs')) || [];
         blogs.push(newBlog);
 
-        // Store the updated blogs array in local storage
+       
         localStorage.setItem('blogs', JSON.stringify(blogs));
 
-        // Clear form inputs
+       
         blogTitleInput.value = '';
         blogContentInput.value = '';
 
