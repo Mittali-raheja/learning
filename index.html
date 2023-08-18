@@ -10,6 +10,17 @@
     <title>Video Comment & Like</title>
 </head>
 <body>
+    <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="add-blog.html">Add Blog</a></li>
+    </ul>
+</nav>
+
+
+<h1>Blog Posts</h1>
+<div id="blogContainer"></div>
+<script src="display-blogs.js"></script>
     <div class="container center__display">
         <div class="top">
             <div class="video__container">
@@ -20,6 +31,7 @@
                     <div class="heart__icon center__display">
                         <i class="far fa-heart"></i>
                     </div>
+                    
                     <div class="form__info center__display">
                         <input type="text" name="user" id="user" placeholder="Your user name">
                         <input type="text" name="comment" id="comment" placeholder="Add a short comment here">
@@ -34,29 +46,17 @@
                 </div>
             </div>
         </div>
+        <div class="blog__container">
+    
+    <div class="comment__section">
+        <div class="heart__icon--comment">
+            <i class="far fa-heart"></i>
+     
+</div>
+
 
         <div class="comments__container center__display">
-            <!-- <div class="comment__card">
-                <div class="pic center__display">
-                    A
-                </div>
-                <div class="comment__info">
-                    <small class="nickname">
-                        UserNameHere
-                    </small>
-                    <p class="comment">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, in magnam! Libero?
-                    </p>
-                    <div class="comment__bottom">
-                        <div class="heart__icon--comment">
-                            <i class="far fa-heart"></i>
-                        </div>
-                        <button>
-                            Reply
-                        </button>
-                    </div>
-                </div>
-            </div> -->
+      
         </div>
     </div>
     <script src="main.js"></script>
