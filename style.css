@@ -143,3 +143,72 @@ form{
     text-transform: uppercase;
     cursor: pointer;
 }
+
+/* Blog Container */
+.blog__container {
+    width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.blog__container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.blog__container p {
+    font-size: 18px;
+}
+
+/* Comment Section */
+.comment__section {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.comment__section .heart__icon--comment {
+    font-size: 20px;
+    margin-right: 20px;
+    color: #eee;
+    cursor: pointer;
+}
+
+.comment__section button {
+    border: none;
+    background: transparent;
+    color: #aaa;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+ nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #48cae4;
+}
